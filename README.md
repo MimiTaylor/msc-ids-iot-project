@@ -1,2 +1,2 @@
 # msc-ids-iot-project
-BBK Msc IDS IOT Project
+BBK MSc IDS IOT Project
