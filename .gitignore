@@ -1,0 +1,5 @@
+*.csv
+MERGED_CSV/
+*.pkl
+.DS_Store
+.ipynb_checkpoints/
