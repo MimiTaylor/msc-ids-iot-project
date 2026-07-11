@@ -77,7 +77,13 @@ jupyter notebook
 Run the notebooks in order: 01, then 02, then 03, then 04. Each notebook saves files
 that the next notebook depends on.
 
----
+### Expected Runtime
+
+Notebook 01 takes several minutes to load all 63 CSV files (~45 million rows).
+Notebook 03 takes approximately 10-15 minutes to train all six classifiers
+sequentially, primarily due to Logistic Regression's slow convergence and
+K-Nearest Neighbour's inference cost on the resampled training set (2,273,555 records). 
+
 
 ## Dataset
 
