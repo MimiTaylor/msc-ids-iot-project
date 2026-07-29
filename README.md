@@ -47,7 +47,7 @@ classes total), generated using 105 heterogeneous IoT devices.
 | chart_confusion_matrix.png | Confusion matrix for the IDS prototype |
 | smote_enn_balance.png | Class distribution before and after SMOTE-ENN |
 | feature_importances.png | Random Forest feature importance scores |
-| class_distribution.png	Class distribution in the stratified sample (1,000,000 records) |
+| class_distribution.png | Class distribution in the stratified sample (1,000,000 records) |
 
 ---
 
