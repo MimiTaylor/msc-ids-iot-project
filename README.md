@@ -28,7 +28,7 @@ classes total), generated using 105 heterogeneous IoT devices.
 |---|---|
 | 01_data_preprocessing.ipynb | Loads all 63 CICIoT2023 CSV files, maps 33 attack labels to 7 categories plus Benign, takes a stratified sample of 1,000,000 records |
 | 02_data_cleaning.ipynb | Data cleaning, Random Forest feature selection, 70/30 train/test split, SMOTE-ENN resampling |
-| 03_model_training.ipynb | Trains five traditional classifiers and MLP baseline, measures resource efficiency, generates results and charts | Also includes a supplementary test retraining Logistic Regression with feature scaling, to test whether this resolves its convergence problem |
+| 03_model_training.ipynb | Trains five traditional classifiers and MLP baseline, measures resource efficiency, generates results and charts. Also includes a supplementary test retraining Logistic Regression with feature scaling, to test whether this resolves its convergence problem |
 | 04_ids_prototype.ipynb | Lightweight IDS prototype using the most suitable classifier identified in Notebook 03 |
 
 ---
@@ -83,7 +83,7 @@ that the next notebook depends on.
 Notebook 01 takes several minutes to load all 63 CSV files (~45 million rows).
 Notebook 03 takes approximately 10-15 minutes to train all six classifiers
 sequentially, primarily due to Logistic Regression's slow convergence and
-K-Nearest Neighbour's inference cost on the resampled training set (2,273,555 records). 
+K-Nearest Neighbor's inference cost on the resampled training set (2,273,555 records). 
 
 
 ## Dataset
