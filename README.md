@@ -27,9 +27,9 @@ classes total), generated using 105 heterogeneous IoT devices.
 | Notebook | Description |
 |---|---|
 | 01_data_preprocessing.ipynb | Loads all 63 CICIoT2023 CSV files, maps 33 attack labels to 7 categories plus Benign, takes a stratified sample of 1,000,000 records |
-| 02_data_cleaning.ipynb | Data cleaning, Random Forest feature selection, 70/30 train/test split, SMOTE-ENN resampling |
-| 03_model_training.ipynb | Trains five traditional classifiers and MLP baseline, measures resource efficiency, generates results and charts. Also includes a supplementary test retraining Logistic Regression with feature scaling, to test whether this resolves its convergence problem |
-| 04_ids_prototype.ipynb | Lightweight IDS prototype using the most suitable classifier identified in Notebook 03 |
+| 02_data_cleaning.ipynb | Data cleaning, Random Forest feature selection, 70/30 train/test split, SMOTE-ENN resampling, and feature scaling for the scale-sensitive classifiers |
+| 03_model_training.ipynb | Trains five traditional classifiers and an MLP baseline. Applies feature scaling to the scale-sensitive classifiers (Logistic Regression, KNN, MLP) and leaves the tree-based classifiers and Naive Bayes unscaled. Measures resource efficiency, runs cross-validation on the two top models to check ranking stability, and generates results and charts |
+| 04_ids_prototype.ipynb | Lightweight IDS prototype using the strongest candidate classifier (Decision Tree) identified in Notebook 03 |
 
 ---
 
@@ -37,8 +37,10 @@ classes total), generated using 105 heterogeneous IoT devices.
 
 | File | Description |
 |---|---|
-| results_resources.csv | Training time, inference time, memory usage and model size for all classifiers |
+| results_resources.csv | Training time, inference timing, memory usage and model size for all classifiers |
 | results_accuracy.csv | Precision, recall and F1-score per classifier per attack category |
+| results_cross_validation.csv | Cross-validation mean and standard deviation macro F1 for Decision Tree and Random Forest |
+| results_cv_fold_scores.csv | Raw per-fold macro F1 scores from the repeated cross-validation |
 | prototype_predictions.csv | Per-record predictions from the IDS prototype |
 | prototype_detection_summary.csv | Per-category detection rates from the IDS prototype |
 | chart_resource_efficiency.png | Resource efficiency comparison charts |
@@ -80,10 +82,11 @@ that the next notebook depends on.
 
 ### Expected Runtime
 
-Notebook 01 takes several minutes to load all 63 CSV files (~45 million rows).
-Notebook 03 takes approximately 10-15 minutes to train all six classifiers
-sequentially, primarily due to Logistic Regression's slow convergence and
-K-Nearest Neighbor's inference cost on the resampled training set (2,273,555 records). 
+Notebook 01 takes several minutes to load all 63 CSV files (45,019,243 rows).
+Notebook 03 takes roughly 45 to 60 minutes to run in full. Most of this is the MLP
+training to convergence and the repeated cross-validation of Decision Tree and Random
+Forest, which applies SMOTE-ENN inside every fold. K-Nearest Neighbor's inference cost
+on the resampled training set (2,273,555 records) adds further time.
 
 
 ## Dataset
@@ -91,11 +94,11 @@ K-Nearest Neighbor's inference cost on the resampled training set (2,273,555 rec
 This project uses the **CICIoT2023** dataset (Neto et al., 2023).
 
 - **Source:** https://www.unb.ca/cic/datasets/iotdataset-2023.html
-- **Size:** approximately 45 million network flow records across 63 CSV files
+- **Size:** 45,019,243 network flow records across 63 CSV files, as verified by loading all files used in this project
 - **Features:** 39 features plus 1 label column
 - **Attack types:** 33 attack types across 7 categories, plus Benign traffic (34 classes total)
 
-The dataset is not included in this repository due to its size. It can be Downloaded from the
+The dataset is not included in this repository due to its size. It can be downloaded from the
 source above and the CSV files placed in a folder called `MERGED_CSV` inside your
 `IDS_PROJECT_REPORT` directory before running Notebook 01.
 
