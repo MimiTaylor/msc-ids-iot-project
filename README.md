@@ -13,8 +13,8 @@
 This project evaluates five traditional machine learning classifiers alongside a minimal
 MLP baseline for deployment as a lightweight Intrusion Detection System (IDS) on
 resource-constrained IoT devices. Classifiers are evaluated on both detection accuracy
-(precision, recall and F1-score across seven attack categories) and resource efficiency
-(training time, inference time, memory usage and model size).
+(precision, recall and F1-score across seven attack categories) and 
+resource efficiency (training time, inference timing, memory use and model size).
 
 The dataset used is CICIoT2023 (Neto et al., 2023), a realistic IoT network traffic
 dataset containing 33 attack types across seven categories, plus Benign traffic (34
@@ -29,7 +29,8 @@ classes total), generated using 105 heterogeneous IoT devices.
 | 01_data_preprocessing.ipynb | Loads all 63 CICIoT2023 CSV files, maps 33 attack labels to 7 categories plus Benign, takes a stratified sample of 1,000,000 records |
 | 02_data_cleaning.ipynb | Data cleaning, Random Forest feature selection, 70/30 train/test split, SMOTE-ENN resampling, and feature scaling for the scale-sensitive classifiers |
 | 03_model_training.ipynb | Trains five traditional classifiers and an MLP baseline. Applies feature scaling to the scale-sensitive classifiers (Logistic Regression, KNN, MLP) and leaves the tree-based classifiers and Naive Bayes unscaled. Measures resource efficiency, runs cross-validation on the two top models to check ranking stability, and generates results and charts |
-| 04_ids_prototype.ipynb | Lightweight IDS prototype using the strongest candidate classifier (Decision Tree) identified in Notebook 03 |
+| 04_ids_prototype.ipynb | Lightweight IDS prototype using the strongest candidate classifier (Decision Tree) identified in Notebook 03 and section 6.2 of the report |
+| 05_data_leakage_check.ipynb | Verification notebook, not part of the pipeline. Refits the feature selection step on the training partition only and compares the result against the feature set used in this project. Writes no files. |
 
 ---
 
@@ -37,7 +38,7 @@ classes total), generated using 105 heterogeneous IoT devices.
 
 | File | Description |
 |---|---|
-| results_resources.csv | Training time, inference timing, memory usage and model size for all classifiers |
+| results_resources.csv | Training time, inference timing, memory use and model size for all classifiers |
 | results_accuracy.csv | Precision, recall and F1-score per classifier per attack category |
 | results_cross_validation.csv | Cross-validation mean and standard deviation macro F1 for Decision Tree and Random Forest |
 | results_cv_fold_scores.csv | Raw per-fold macro F1 scores from the repeated cross-validation |
@@ -79,6 +80,8 @@ jupyter notebook
 
 Run the notebooks in order: 01, then 02, then 03, then 04. Each notebook saves files
 that the next notebook depends on.
+
+Notebook 05 is a verification notebook and is not part of the pipeline. It requires only the stratified sample produced by Notebook 01, writes no files, and does not affect the outputs of the other four.
 
 ### Expected Runtime
 
