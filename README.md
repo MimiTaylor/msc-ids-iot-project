@@ -27,10 +27,10 @@ classes total), generated using 105 heterogeneous IoT devices.
 | Notebook | Description |
 |---|---|
 | 01_data_preprocessing.ipynb | Loads all 63 CICIoT2023 CSV files, maps 33 attack labels to 7 categories plus Benign, takes a stratified sample of 1,000,000 records |
-| 02_data_cleaning.ipynb | Data cleaning, Random Forest feature selection, 70/30 train/test split, SMOTE-ENN resampling, and feature scaling for the scale-sensitive classifiers |
+| 02_data_cleaning.ipynb | Data cleaning (missing values, duplicates, infinite values, and the raw Label column), Random Forest feature selection, 70/30 train/test split, SMOTE-ENN resampling, and feature scaling for the scale-sensitive classifiers |
 | 03_model_training.ipynb | Trains five traditional classifiers and an MLP baseline. Applies feature scaling to the scale-sensitive classifiers (Logistic Regression, KNN, MLP) and leaves the tree-based classifiers and Naive Bayes unscaled. Measures resource efficiency, runs cross-validation on the two top models to check ranking stability, and generates results and charts |
 | 04_ids_prototype.ipynb | Lightweight IDS prototype using the strongest candidate classifier (Decision Tree) identified in Notebook 03 and section 6.2 of the report |
-| 05_data_leakage_check.ipynb | Verification notebook, not part of the pipeline. Refits the feature selection step on the training partition only and compares the result against the feature set used in this project. Writes no files. |
+| 05_data_leakage_check.ipynb | Supporting checks, not part of the pipeline. Refits the feature selection step on the training partition only and compares the result against the feature set used in this project (report section 6.6). Also reports the correlation matrix for the 13 selected features, supporting the discussion of Naive Bayes in report section 6.3. Writes no files. |
 
 ---
 
@@ -63,7 +63,8 @@ classes total), generated using 105 heterogeneous IoT devices.
 ### Install dependencies
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn imbalanced-learn joblib jupyter
+pip install pandas==3.0.3 numpy==2.5.0 matplotlib==3.11.0 seaborn==0.13.2 \
+  scikit-learn==1.9.0 imbalanced-learn==0.14.2 joblib==1.5.3 jupyter
 ```
 
 ### Activate virtual environment (if using one)
@@ -81,7 +82,7 @@ jupyter notebook
 Run the notebooks in order: 01, then 02, then 03, then 04. Each notebook saves files
 that the next notebook depends on.
 
-Notebook 05 is a verification notebook and is not part of the pipeline. It requires only the stratified sample produced by Notebook 01, writes no files, and does not affect the outputs of the other four.
+Notebook 05 runs two supporting checks and is not part of the pipeline. It requires only the stratified sample produced by Notebook 01, writes no files, and does not affect the outputs of the other four.
 
 ### Expected Runtime
 
