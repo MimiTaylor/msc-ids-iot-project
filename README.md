@@ -57,7 +57,7 @@ classes total), generated using 105 heterogeneous IoT devices.
 ## Setup and Installation
 
 ### Requirements
-- Python 3.13
+- Python 3.13.1
 - Virtual environment recommended
 
 ### Install dependencies
