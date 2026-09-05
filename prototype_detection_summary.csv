@@ -1,0 +1,9 @@
+Attack Category,Total Records,Correctly Detected,Detection Rate
+Benign,7003,5100,0.7283
+Brute Force,83,6,0.0723
+DDoS,146204,109239,0.7472
+DoS,41744,25061,0.6003
+Mirai,16763,16726,0.9978
+Reconnaissance,4402,2744,0.6234
+Spoofing,3004,2379,0.7919
+Web-based,159,22,0.1384

@@ -1,0 +1,7 @@
+Classifier,Training Time (s),Total Batch Time (s),Throughput (rec/s),Latency mean (ms),Latency median (ms),Latency std (ms),Memory Usage (MB),Model Size (KB)
+Decision Tree,29.5,0.032,6854679.0,0.2041,0.202,0.0101,32.64,14391.52
+Random Forest,104.48,0.5447,402748.0,13.1847,13.6075,0.716,116.44,1557178.52
+Naive Bayes,2.07,0.0249,8798147.0,0.2625,0.2597,0.0083,76.99,3.27
+Logistic Regression,68.83,0.0078,28122432.0,0.0328,0.0327,0.0017,26.84,1.9
+KNN,3.93,3.7561,58402.0,17.2607,17.4576,0.8759,53.35,528061.63
+MLP,1035.18,0.0644,3407700.0,0.0602,0.0581,0.0651,180.75,86.14

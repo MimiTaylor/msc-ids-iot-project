@@ -1,0 +1,49 @@
+Classifier,Attack Category,Precision,Recall,F1-Score,Support
+Decision Tree,Benign,0.7416,0.7283,0.7349,7003
+Decision Tree,Brute Force,0.0429,0.0723,0.0538,83
+Decision Tree,DDoS,0.8677,0.7472,0.8029,146204
+Decision Tree,DoS,0.4049,0.6003,0.4836,41744
+Decision Tree,Mirai,0.9911,0.9978,0.9944,16763
+Decision Tree,Reconnaissance,0.6302,0.6234,0.6268,4402
+Decision Tree,Spoofing,0.7883,0.7919,0.7901,3004
+Decision Tree,Web-based,0.0726,0.1384,0.0952,159
+Random Forest,Benign,0.7668,0.7801,0.7734,7003
+Random Forest,Brute Force,0.069,0.0723,0.0706,83
+Random Forest,DDoS,0.8723,0.7441,0.8031,146204
+Random Forest,DoS,0.4086,0.6177,0.4919,41744
+Random Forest,Mirai,0.9932,0.9984,0.9958,16763
+Random Forest,Reconnaissance,0.6675,0.6888,0.678,4402
+Random Forest,Spoofing,0.8714,0.7963,0.8321,3004
+Random Forest,Web-based,0.0856,0.1006,0.0925,159
+Naive Bayes,Benign,0.5653,0.2725,0.3677,7003
+Naive Bayes,Brute Force,0.007,0.8675,0.0139,83
+Naive Bayes,DDoS,0.9455,0.1454,0.252,146204
+Naive Bayes,DoS,0.2441,0.9623,0.3894,41744
+Naive Bayes,Mirai,0.9999,0.9795,0.9896,16763
+Naive Bayes,Reconnaissance,0.129,0.012,0.022,4402
+Naive Bayes,Spoofing,0.4195,0.242,0.3069,3004
+Naive Bayes,Web-based,0.0147,0.0063,0.0088,159
+Logistic Regression,Benign,0.72,0.3433,0.4649,7003
+Logistic Regression,Brute Force,0.0077,0.3012,0.015,83
+Logistic Regression,DDoS,0.8909,0.6394,0.7445,146204
+Logistic Regression,DoS,0.3652,0.7248,0.4857,41744
+Logistic Regression,Mirai,0.9895,0.9927,0.9911,16763
+Logistic Regression,Reconnaissance,0.5988,0.4007,0.4801,4402
+Logistic Regression,Spoofing,0.4118,0.5553,0.4729,3004
+Logistic Regression,Web-based,0.0315,0.2327,0.0555,159
+KNN,Benign,0.72,0.6764,0.6975,7003
+KNN,Brute Force,0.0332,0.0964,0.0494,83
+KNN,DDoS,0.8744,0.7505,0.8078,146204
+KNN,DoS,0.4166,0.6211,0.4987,41744
+KNN,Mirai,0.9887,0.9975,0.9931,16763
+KNN,Reconnaissance,0.5899,0.594,0.592,4402
+KNN,Spoofing,0.6446,0.6388,0.6417,3004
+KNN,Web-based,0.0432,0.1321,0.0651,159
+MLP,Benign,0.803,0.6023,0.6883,7003
+MLP,Brute Force,0.021,0.3976,0.0398,83
+MLP,DDoS,0.9451,0.5651,0.7073,146204
+MLP,DoS,0.3678,0.884,0.5195,41744
+MLP,Mirai,0.9896,0.9974,0.9935,16763
+MLP,Reconnaissance,0.7156,0.4905,0.582,4402
+MLP,Spoofing,0.8176,0.7683,0.7922,3004
+MLP,Web-based,0.0278,0.3585,0.0516,159

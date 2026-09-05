@@ -1,4 +1,9 @@
 *.csv
+!results_accuracy.csv
+!results_resources.csv
+!results_cross_validation.csv
+!results_cv_fold_scores.csv
+!prototype_detection_summary.csv
 MERGED_CSV/
 *.pkl
 .DS_Store
